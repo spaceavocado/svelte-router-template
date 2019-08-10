@@ -5,6 +5,9 @@
  */
 
 // Base Spacing
+.vs-none {
+  height: 0;
+}
 .vs-0 {
   height: nth($vertical-spacing, 1) / 2;
   width: 100%;

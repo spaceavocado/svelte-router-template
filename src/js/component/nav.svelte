@@ -33,9 +33,17 @@
     }
     :global(a) {
       font-weight: 700;
+      padding: $vs1/2 0;
+      display: inline-block;
+      &.active {
+        border-bottom: 2px solid $c-text-1;
+      }
     }
     :global(a.brand) {
       text-transform: uppercase;
+      &.active {
+        border: 0;
+      }
     }
   }
 </style>

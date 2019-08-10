@@ -1,4 +1,5 @@
 <script>
+  import site from '../store/site';
   import articles from '../store/article';
   import {onMount} from 'svelte';
 
@@ -6,9 +7,6 @@
   import RouterLink from '@spaceavocado/svelte-router/component/link';
 
   // Internals
-  var dateOptions = {
-    month: 'long',
-  };
 
   const monthLink = (year, month) => {
     return {
@@ -16,9 +14,10 @@
       params: {year, month},
     }
   };
-
   const monthName = (year, month) => new Date(year, month, 1)
-    .toLocaleDateString("en-US", dateOptions);
+    .toLocaleDateString("en-US", {
+      month: 'long',
+    });
 
   $: archive = [];
   onMount(() => {
@@ -26,8 +25,12 @@
   });
 </script>
 
+<svelte:head>
+	<title>{$site.title} | Archive</title>
+</svelte:head>
+
 <template lang="pug">
-  .vs-4
+  .vs-4.vs-sm-3
   .container
     h1.heading-1.centered Archive
   .vs-4
@@ -46,7 +49,7 @@
                 +each('year[1] as month')
                   .month
                     RouterLink(to="{monthLink(year[0], month)}") {monthName(year[0], month)}
-  .vs-4
+  .vs-4.vs-sm-3
 </template>
 
 <style lang="scss">

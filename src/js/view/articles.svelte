@@ -1,5 +1,6 @@
 <script>
   import {router} from '@spaceavocado/svelte-router';
+  import site from '../store/site';
   import articles from '../store/article';
   import {onMount} from 'svelte';
 
@@ -65,8 +66,12 @@
   });
 </script>
 
+<svelte:head>
+	<title>{$site.title} | Override the Digital Divide</title>
+</svelte:head>
+
 <template lang="pug">
-  .vs-4
+  .vs-4.vs-sm-3
   .container
     h1.heading-1.centered Override the Digital Divide
     +if('filtered')
@@ -92,7 +97,7 @@
           ButtonLink(to="{goTo(-1)}") Newer
         +if('page < pages')
           ButtonLink(to="{goTo(1)}") Older
-  .vs-4
+  .vs-4.vs-sm-3
 </template>
 
 <style lang="scss">

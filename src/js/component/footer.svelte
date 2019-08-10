@@ -9,15 +9,15 @@
     .container
       .layout
         .col-12.col-md-3
-          RouterLink(to='/' cls='brand') Brand Name
-          .vs-0.vs-sm-1
+          RouterLink(to='/' cls='brand') Some Brand
+          .vs-none.vs-sm-1
         .col-12.col-md-4
           p
             strong Corporate Headquarters
           p Some Brand Enterprises, LLC
           p 102 Peterson Road, Suite 29
           p Pattsrurgh, PB 16227
-          .vs-0.vs-sm-1
+          .vs-none.vs-sm-1
         .col-12.col-md-5
           ul
             li
@@ -30,7 +30,10 @@
       .layout
         .col-12.col-md-3
         .col-12.col-md-9
-          p.copyright © 2019 SOME BRAND Enterprises. All Rights Reserved. Website designed by <a href="https://github.com/spaceavocado">Space Avocado</a>.
+          p.copyright
+            | © 2019 SOME BRAND Enterprises.
+            | All Rights Reserved.
+            | Website designed by <a href="https://github.com/spaceavocado">Space Avocado</a>.
     .vs-4.vs-sm-3
   </template>
 

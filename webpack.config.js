@@ -97,7 +97,9 @@ module.exports = (env, options) => {
         : '',
     },
     devServer: {
-      historyApiFallback: true,
+      historyApiFallback: {
+        index: 'index.dev.html',
+      },
     },
   };
 };

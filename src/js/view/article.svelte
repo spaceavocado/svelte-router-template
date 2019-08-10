@@ -1,5 +1,6 @@
 <script>
   import {router} from '@spaceavocado/svelte-router';
+  import site from '../store/site';
   import articles from '../store/article';
   import {formatDateLong} from '../utils';
 
@@ -18,8 +19,12 @@
 
 </script>
 
+<svelte:head>
+	<title>{$site.title} | {article.title}</title>
+</svelte:head>
+
 <template lang="pug">
-  .vs-4
+  .vs-4.vs-sm-3
   .container
     h1.heading-1.centered {article.title}
     .vs-2
@@ -30,7 +35,7 @@
       .col-12.col-md-2
       .col-12.col-md-8
         .content {article.content}
-  .vs-4
+  .vs-4.vs-sm-3
 </template>
 
 <style lang="scss">

@@ -1,4 +1,5 @@
 <script>
+  import site from '../store/site';
   import articles from '../store/article';
   import {onMount} from 'svelte';
 
@@ -15,12 +16,17 @@
   });
 </script>
 
+<svelte:head>
+	<title>{$site.title}</title>
+  <meta name="description" content="Boilerplate template project for spaceavocado/svelte-router - Simple Svelte Router for Single Page Applications (SPA)." />
+</svelte:head>
+
 <template lang="pug">
   Hero(
-    title='Some Brand'
-    subtitle='A Svelte Router Boilerplate Template by Space Avocado'
-    bg='https://blackrockdigital.github.io/startbootstrap-clean-blog/img/home-bg.jpg')
-  .vs-4
+    title='{$site.brand}'
+    subtitle="{$site.title + ' by Space Avocado'}"
+    bg='/assets/img/hero.jpg')
+  .vs-4.vs-sm-3
   .container
     .layout
       .col-12.col-md-2
@@ -53,16 +59,14 @@
               .vs-3
   .vs-3
   .container
-    .layout.section-link.centered
+    .layout.centered
       ButtonLink(to="{{name: 'ARTICLES'}}") View All
-  .vs-4
+  .vs-4.vs-sm-3
 </template>
 
 <style lang="scss">
-  .section-link {
-    :global(.button-link) {
-      margin: 0 auto;
-    }
+  :global(.button-link) {
+    margin: 0 auto;
   }
   .callout {
     @include font-size($fs-md);
