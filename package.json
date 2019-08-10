@@ -1,0 +1,48 @@
+{
+  "name": "@spaceavocado/svelte-router-template",
+  "version": "1.0.0",
+  "description": "Boilerplate template project for spaceavocado/svelte-router - Simple Svelte Router for Single Page Applications (SPA).",
+  "main": "src/js/index.js",
+  "author": "David Horak <info@evokesolutions.com>",
+  "license": "MIT",
+  "scripts": {
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production",
+    "start": "webpack-dev-server --mode=development --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:spaceavocado/svelte-router-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/spaceavocado/svelte-router-template/issues"
+  },
+  "homepage": "https://github.com/spaceavocado/svelte-router-template",
+  "keywords": [
+    "svelte",
+    "router",
+    "svelte-router",
+    "template"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@spaceavocado/svelte-router": "^1.0.5",
+    "babel-eslint": "^10.0.2",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
+    "eslint": "^6.1.0",
+    "eslint-config-google": "^0.13.0",
+    "eslint-plugin-svelte3": "^2.7.3",
+    "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.12.0",
+    "pug": "^2.0.4",
+    "sass-loader": "^7.2.0",
+    "svelte": "^3.7.1",
+    "svelte-loader": "^2.13.6",
+    "svelte-preprocess": "^2.15.1",
+    "webpack": "^4.38.0",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.7.2"
+  }
+}

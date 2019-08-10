@@ -1,0 +1,8 @@
+// Shared abstracts auto included for any svelte component.
+// Important: This must contain only non-render-able
+// scss elements (variables, functions, etc.) otherwise
+// the render css will be duplicated on all components.
+
+@import 'abstract/variable';
+@import 'abstract/mixin';
+@import 'abstract/function';

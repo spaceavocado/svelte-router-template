@@ -1,0 +1,44 @@
+// Font sizes
+$fs-xs: 12;
+$fs-sm: 16;
+$fs-md: 24;
+$fs-lg: 32;
+$fs-xl: 48;
+
+// Base font size
+$base-font-size: $fs-sm * 1px;
+// Line height ratio
+$lhr: 1.4;
+
+// Colors
+$c-bg-1: rgb(255, 255, 255);
+$c-bg-2:rgb(234, 234, 237);
+$c-text-1: rgb(50, 59, 82);
+$c-text-2: rgb(255, 255, 255);
+$c-text-3: rgb(244, 129, 30);
+$c-link-1: rgb(48, 74, 141);
+$c-link-1-hover: rgb(0, 0, 0);
+$c-keyline-1: rgba(226, 226, 226, 0.7);
+
+// Fonts
+$font-1: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+
+// Vertical Spacing
+$vs1: 12px;
+$vs2: 24px;
+$vs3: 48px;
+$vs4: 96px;
+$vertical-spacing: ($vs1, $vs2, $vs3, $vs4);
+
+// Animations
+$at1: 300ms;
+$at2: 700ms;
+$ac1: ease-in-out;
+$ac2: cubic-bezier(0.645, 0.045, 0.355, 1);
+$ac3: cubic-bezier(.25,1.7,.35,.8);
+
+// Grid
+$grid-xs: 600px;
+$grid-sm: 960px;
+$grid-md: 1264px;
+$grid-lg: 1904px;

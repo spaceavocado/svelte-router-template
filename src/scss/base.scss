@@ -1,0 +1,27 @@
+/**
+ * This is the base stylesheet loaded before the 
+ * the svelte application is loaded, it performs
+ * the global reset, and sets to global styles.
+ */
+@charset 'utf-8';
+
+// Abstract
+@import 'abstracts';
+
+// Base
+@import 'base/normalize';
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/grid';
+@import 'base/vertical-spacing';
+
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+}
+
+// Components
+@import 'components/heading';
+@import 'components/keyline';

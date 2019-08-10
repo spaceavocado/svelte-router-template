@@ -1,0 +1,16 @@
+// Headings
+.heading-1 {
+  @include font-size($fs-xl);
+  @include line-height($fs-xl * $lhr);
+  font-weight: 700;
+}
+.heading-2 {
+  @include font-size($fs-lg);
+  @include line-height($fs-lg * $lhr);
+  font-weight: 700;
+}
+.heading-3 {
+  @include font-size($fs-md);
+  @include line-height($fs-md * $lhr);
+  font-weight: 700;
+}

@@ -1,0 +1,40 @@
+// Font face
+@mixin font-face(
+  $name,
+  $file,
+  $weight: 400,
+  $style: 'normal',
+  $path: '/assets/fonts/') {
+  @font-face {
+    font-family: $name;
+    font-weight: $weight;
+    font-style: $style;
+    src: url('#{$path}#{$file}.woff2') format('woff2');
+  }
+}
+
+// Font size based on the base font size
+@mixin font-size($size) {
+  @if unitless($size) {
+    $size: $size * 1px;
+  }
+  font-size: $size;
+  font-size: ($size / $base-font-size) * 1rem;
+}
+
+// Line height based on the base font size
+@mixin line-height($height) {
+  $height: strip-unit($height);
+  line-height: $height * 1px;
+  line-height: (1 / ($base-font-size / ($base-font-size * 0 + 1)) * $height * 1rem);
+}
+
+// Media query
+@mixin media-query($width, $type: min) {
+  @if $type == max {
+    $width: $width - 1px;
+  }
+  @media only screen and (#{$type}-width: $width) {
+    @content;
+  }
+}

@@ -1,0 +1,50 @@
+/**
+ * Vertical Spacing
+ * Auto-generated classes based on vertical spacing variable
+ * SEE: abstract/variables
+ */
+
+// Base Spacing
+.vs-0 {
+  height: nth($vertical-spacing, 1) / 2;
+  width: 100%;
+}
+@for $i from 1 through length($vertical-spacing) {
+  .vs-#{$i} {
+    height: nth($vertical-spacing, $i);
+    width: 100%;
+  }
+}
+
+@include media-query($grid-xs, max) {
+  @for $i from 1 through length($vertical-spacing) {
+    .vs-xs-#{$i} {
+      height: nth($vertical-spacing, $i);
+      width: 100%;
+    }
+  }
+}
+@include media-query($grid-sm, max) {
+  @for $i from 1 through length($vertical-spacing) {
+    .vs-sm-#{$i} {
+      height: nth($vertical-spacing, $i);
+      width: 100%;
+    }
+  }
+}
+@include media-query($grid-md, max) {
+  @for $i from 1 through length($vertical-spacing) {
+    .vs-md-#{$i} {
+      height: nth($vertical-spacing, $i);
+      width: 100%;
+    }
+  }
+}
+@include media-query($grid-lg, max) {
+  @for $i from 1 through length($vertical-spacing) {
+    .vs-lg-#{$i} {
+      height: nth($vertical-spacing, $i);
+      width: 100%;
+    }
+  }
+}
