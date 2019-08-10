@@ -359,19 +359,19 @@ table {
   font-family: "Open Sans";
   font-weight: 400;
   font-style: "normal";
-  src: url("/assets/fonts/opensans-regular.woff2") format("woff2"); }
+  src: url("/svelte-router-template/assets/fonts/opensans-regular.woff2") format("woff2"); }
 
 @font-face {
   font-family: "Open Sans";
   font-weight: 700;
   font-style: "normal";
-  src: url("/assets/fonts/opensans-bold.woff2") format("woff2"); }
+  src: url("/svelte-router-template/assets/fonts/opensans-bold.woff2") format("woff2"); }
 
 @font-face {
   font-family: "Open Sans";
   font-weight: 300;
   font-style: "normal";
-  src: url("/assets/fonts/opensans-light.woff2") format("woff2"); }
+  src: url("/svelte-router-template/assets/fonts/opensans-light.woff2") format("woff2"); }
 
 html {
   font-size: 16px; }
