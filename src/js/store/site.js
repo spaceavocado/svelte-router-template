@@ -4,7 +4,9 @@
 
 import {readable} from 'svelte/store';
 
-export default readable({
-  brand: 'Some Brand',
-  title: 'Svelte Router Boilerplate Template',
-});
+export let site;
+
+export function createSite(params) {
+  site = readable(params);
+  return site;
+};

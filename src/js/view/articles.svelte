@@ -1,6 +1,6 @@
 <script>
   import {router} from '@spaceavocado/svelte-router';
-  import site from '../store/site';
+  import {site} from '../store/site';
   import articles from '../store/article';
   import {onMount} from 'svelte';
 

@@ -2,6 +2,9 @@
 
 Boilerplate template project for [spaceavocado/svelte-router](https://github.com/spaceavocado/svelte-router) - Simple Svelte Router for Single Page Applications (SPA). 
 
+## Live Preview
+[https://spaceavocado.github.io/svelte-router-template/](https://spaceavocado.github.io/svelte-router-template/)
+
 ## Setup
 1. Clone this repository or [create your repository from this template](https://help.github.com/en/articles/creating-a-repository-from-a-template).
 2. Install packages:
@@ -27,7 +30,7 @@ To run the development server that provides live reloading, run:
 ## Production Build
 ```npm run build:prod``` or  ```yarn build:prod```
 
-The productions files:
+The productions files are located in **/publish** folder:
 
  - index.html
  - dist

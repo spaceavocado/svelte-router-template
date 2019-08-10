@@ -1,5 +1,5 @@
 <script>
-  import site from '../store/site';
+  import {site} from '../store/site';
 </script>
 
 <svelte:head>

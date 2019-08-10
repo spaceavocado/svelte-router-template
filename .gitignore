@@ -1,6 +1,7 @@
 # Compiled
 dev
-dist
+publish/*
+!/publish/index.html
 
 # NPM, YARN
 node_modules

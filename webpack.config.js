@@ -1,9 +1,17 @@
 const path = require('path');
+const webpack = require('webpack');
+
 const svelteLoaderOptions = require('./svelte.config.js');
+
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const extensions = ['.mjs', '.js', '.svelte', '.html'];
 const mainFields = ['svelte', 'browser', 'module', 'main'];
+
+// Base URL is passed to JS and SCSS
+// update as needed for production.
+const baseURL = '';
 
 module.exports = (env, options) => {
   const DEVELOPMENT = options.mode === 'development';
@@ -72,6 +80,7 @@ module.exports = (env, options) => {
             {
               loader: 'sass-loader', options: {
                 sourceMap: DEVELOPMENT,
+                data: '$BASEURL: "' + baseURL + '";',
               },
             },
           ],
@@ -83,23 +92,27 @@ module.exports = (env, options) => {
       new MiniCssExtractPlugin({
         filename: DEVELOPMENT
           ? 'dev/css/[name].css'
-          : 'dist/css/[name].min.css',
+          : 'publish/dist/css/[name].min.css',
       }),
+      new webpack.DefinePlugin({
+        __BASEURL__: JSON.stringify(baseURL),
+      }),
+      new CopyPlugin([
+        {from: 'assets', to: 'publish/assets'},
+      ]),
     ],
     output: {
       path: __dirname,
       publicPath: '/',
       filename: DEVELOPMENT
         ? 'dev/js/[name].js'
-        : 'dist/js/[name].min.js',
+        : 'publish/dist/js/[name].min.js',
       sourceMapFilename: DEVELOPMENT
-        ? 'dev/js/[name].map'
+        ? 'publish/dev/js/[name].map'
         : '',
     },
     devServer: {
-      historyApiFallback: {
-        index: 'index.dev.html',
-      },
+      historyApiFallback: true,
     },
   };
 };

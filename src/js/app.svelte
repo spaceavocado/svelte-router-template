@@ -1,4 +1,5 @@
 <script>
+  import {site} from './store/site';
   import createRouter, {ROUTER_MODE} from '@spaceavocado/svelte-router';
   import RouterView from '@spaceavocado/svelte-router/component/view';
 
@@ -16,6 +17,7 @@
 
   createRouter({
     mode: ROUTER_MODE.HISTORY,
+    basename: $site.baseurl,
     routes: [
       { 
         path: '/',

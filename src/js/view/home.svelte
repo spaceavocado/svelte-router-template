@@ -1,5 +1,5 @@
 <script>
-  import site from '../store/site';
+  import {site} from '../store/site';
   import articles from '../store/article';
   import {onMount} from 'svelte';
 
@@ -25,7 +25,7 @@
   Hero(
     title='{$site.brand}'
     subtitle="{$site.title + ' by Space Avocado'}"
-    bg='/assets/img/hero.jpg')
+    bg="{$site.baseurl + '/assets/img/hero.jpg'}")
   .vs-4.vs-sm-3
   .container
     .layout
