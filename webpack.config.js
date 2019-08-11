@@ -97,7 +97,7 @@ module.exports = (env, options) => {
       new webpack.DefinePlugin({
         __BASEURL__: JSON.stringify(baseURL),
       }),
-      new CopyPlugin([
+      new CopyPlugin(DEVELOPMENT ? [] : [
         {from: 'assets', to: 'publish/assets'},
       ]),
     ],
@@ -108,7 +108,7 @@ module.exports = (env, options) => {
         ? 'dev/js/[name].js'
         : 'publish/dist/js/[name].min.js',
       sourceMapFilename: DEVELOPMENT
-        ? 'publish/dev/js/[name].map'
+        ? 'dev/js/[name].map'
         : '',
     },
     devServer: {
