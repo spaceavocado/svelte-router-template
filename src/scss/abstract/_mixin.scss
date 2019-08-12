@@ -9,7 +9,7 @@
     font-family: $name;
     font-weight: $weight;
     font-style: $style;
-    src: url('#{$BASEURL}#{$path}#{$file}.woff2') format('woff2');
+    src: url('#{$__BASEURL__}#{$path}#{$file}.woff2') format('woff2');
   }
 }
 

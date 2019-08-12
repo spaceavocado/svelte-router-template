@@ -1,14 +1,14 @@
 const path = require('path');
 const webpack = require('webpack');
 
-const svelteLoaderOptions = require('./svelte.config.js');
-
+// Plugins
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
+// Project setup
+const svelteOptions = require('./svelte.config.js');
 const extensions = ['.mjs', '.js', '.svelte', '.html'];
 const mainFields = ['svelte', 'browser', 'module', 'main'];
-
 // Base URL is passed to JS and SCSS
 // update as needed for production.
 const baseURL = '';
@@ -33,7 +33,7 @@ module.exports = (env, options) => {
           test: /\.svelte$/,
           use: {
             loader: 'svelte-loader',
-            options: svelteLoaderOptions,
+            options: svelteOptions(DEVELOPMENT),
           },
         },
         {
@@ -80,7 +80,7 @@ module.exports = (env, options) => {
             {
               loader: 'sass-loader', options: {
                 sourceMap: DEVELOPMENT,
-                data: '$BASEURL: "' + baseURL + '";',
+                data: '$__BASEURL__: "' + baseURL + '";',
               },
             },
           ],
