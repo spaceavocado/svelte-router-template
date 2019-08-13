@@ -3,6 +3,8 @@ const webpack = require('webpack');
 
 // Plugins
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const TerserJSPlugin = require('terser-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
 // Project setup
@@ -11,6 +13,8 @@ const extensions = ['.mjs', '.js', '.svelte', '.html'];
 const mainFields = ['svelte', 'browser', 'module', 'main'];
 // Base URL is passed to JS and SCSS
 // update as needed for production.
+// IMPORTANT: It must be also updated in package.json
+// in the script "build:html:prod" -> baseurl.
 const baseURL = '';
 
 module.exports = (env, options) => {
@@ -26,6 +30,12 @@ module.exports = (env, options) => {
       alias: {
         'svelte': path.resolve('node_modules', 'svelte'),
       },
+    },
+    optimization: {
+      minimizer: [
+        new TerserJSPlugin({}),
+        new OptimizeCSSAssetsPlugin({}),
+      ],
     },
     module: {
       rules: [

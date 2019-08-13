@@ -1,14 +1,16 @@
 {
   "name": "@spaceavocado/svelte-router-template",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Boilerplate template project for spaceavocado/svelte-router - Simple Svelte Router for Single Page Applications (SPA).",
   "main": "src/js/index.js",
   "author": "David Horak <info@davidhorak.com>",
   "license": "MIT",
   "scripts": {
-    "build:dev": "webpack --mode=development",
-    "build:prod": "webpack --mode=production",
-    "start": "webpack-dev-server --mode=development --open"
+    "build:dev": "webpack --mode=development && npm run build:html:dev",
+    "build:prod": "webpack --mode=production && npm run build:html:prod",
+    "build:html:dev": "pug -P -o ./ -O \"{prod:false, baseURL:''}\" src/html/index.pug",
+    "build:html:prod": "pug -P -o ./publish/ -O \"{prod:true, baseURL:''}\" src/html/index.pug",
+    "start": "npm run build:html:dev && webpack-dev-server --mode=development --open"
   },
   "repository": {
     "type": "git",
@@ -37,11 +39,13 @@
     "eslint-plugin-svelte3": "^2.7.3",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.12.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
     "pug": "^2.0.4",
     "sass-loader": "^7.2.0",
     "svelte": "^3.7.1",
     "svelte-loader": "^2.13.6",
     "svelte-preprocess": "^2.15.1",
+    "terser-webpack-plugin": "^1.4.1",
     "webpack": "^4.38.0",
     "webpack-cli": "^3.3.6",
     "webpack-dev-server": "^3.7.2"

@@ -30,6 +30,10 @@ To run the development server that provides live reloading, run:
 ## Production Build
 ```npm run build:prod``` or  ```yarn build:prod```
 
+> Note: If hosted in a sub-folder, e.g. domain.com/project/, please update the **baseURL** in:
+> * webpack.config.js
+> * package.json
+
 The productions files are located in **/publish** folder:
 
  - index.html

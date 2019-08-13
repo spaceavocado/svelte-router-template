@@ -1,0 +1,15 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset="utf-8")
+    title Svelte Router Boilerplate Template
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    if prod
+      link(rel="stylesheet" href=baseURL + "/dist/css/base.min.css")
+    else 
+      link(rel="stylesheet" href=baseURL + "/dev/css/base.css")
+  body
+    if prod
+      script(src=baseURL + "/dist/js/app.min.js")
+    else
+      script(src=baseURL + "/dev/js/app.js")

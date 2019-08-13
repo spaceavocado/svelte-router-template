@@ -1,7 +1,7 @@
 # Compiled
+index.html
 dev
 publish/*
-!/publish/index.html
 
 # NPM, YARN
 node_modules
