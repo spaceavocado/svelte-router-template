@@ -26,42 +26,40 @@
     title='{$site.brand}'
     subtitle="{$site.title + ' by Space Avocado'}"
     bg="{$site.baseurl + '/assets/img/hero.jpg'}")
-  .vs-4.vs-sm-3
+  .vs-xs-3.vs-sm-4
   .container
-    .layout
-      .col-12.col-md-2
-      .col-12.col-md-8.centered
-        h2.heading-2 Override the Digital Divide
-        .vs-2
-        p.callout Leverage agile frameworks to provide a robust synopsis for high level overviews.
-          | Iterative approaches to corporate strategy foster collaborative thinking to further the
-          | overall value proposition. Organically grow the holistic world view of disruptive innovation
-          | via workplace diversity and empowerment.
-        .vs-2
-        p Bring to the table win-win survival strategies to ensure proactive domination. At the end of
+    .row
+      .col-xs-12.col-md-8.col-md-offset-2
+        h2.heading-2.centered Override the Digital Divide
+        .vs-xs-2
+        p.callout.centered Leverage agile frameworks to provide a robust synopsis for high level
+          | overviews. Iterativeapproaches to corporate strategy foster collaborative thinking to
+          | further the overall value proposition. Organically grow the holistic world view offset
+          | disruptive innovation.
+        .vs-xs-2
+        p.centered Bring to the table win-win survival strategies to ensure proactive domination. At the end of
           | the day, going forward, a new normal that has evolved from generation X is on the runway
           | heading towards a streamlined cloud solution. User generated content in real-time will have
           | multiple touchpoints for offshoring.
-  .vs-4
+  .vs-xs-3.vs-sm-4
   .container
     h2.heading-2.centered Latest Articles
-  .vs-3
+  .vs-xs-3
   .container
-    .layout
-      .col-12.col-md-2
-      .col-12.col-md-8
+    .row
+      .col-xs-12.col-md-8.col-md-offset-2
         .posts
           +each('latest as article, i')
             Post(post="{article}")
             +if('i < latest.length-1')
-              .vs-3
+              .vs-xs-3
               .keyline-1
-              .vs-3
-  .vs-3
+              .vs-xs-3
+  .vs-xs-3
   .container
-    .layout.centered
+    .row.centered
       ButtonLink(to="{{name: 'ARTICLES'}}") View All
-  .vs-4.vs-sm-3
+  .vs-xs-3.vs-sm-4
 </template>
 
 <style lang="scss">

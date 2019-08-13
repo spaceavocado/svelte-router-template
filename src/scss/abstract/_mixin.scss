@@ -29,8 +29,53 @@
   line-height: (1 / ($base-font-size / ($base-font-size * 0 + 1)) * $height * 1rem);
 }
 
+@mixin vertical-spacing($breakpoint) {
+  .vs-#{$breakpoint}-0 {
+    height: 0;
+    width: 100%;
+  }
+  @for $i from 1 through length($vertical-spacing) {
+    .vs-#{$breakpoint}-#{$i} {
+      height: nth($vertical-spacing, $i);
+      width: 100%;
+    }
+  }
+}
+
+// Grid columns
+@mixin grid-columns($breakpoint, $cols, $gutter) {
+  @for $i from 0 through $cols {
+    $size: ($i / $cols) * 100%;
+    $suffix: '-#{$i}';
+    @if $i == 0 {
+      $suffix: '';
+    }
+    .col-#{$breakpoint}#{$suffix}, .col-#{$breakpoint}-offset-#{$i} {
+      box-sizing: border-box;
+      flex: 0 0 auto;
+      padding-right: $gutter;
+      padding-left: $gutter;
+    }
+    .col-#{$breakpoint}#{$suffix} {
+      flex-basis: $size;
+      max-width: $size;
+    }
+    .col-#{$breakpoint}-offset-#{$i} {
+      margin-left: $size;
+    }
+  }
+  .col-#{$breakpoint} {
+    flex-grow: 1;
+    flex-basis: 0;
+    max-width: 100%;
+  }
+}
+
 // Media query
 @mixin media-query($width, $type: min) {
+  @if map-has-key($grid, $width) {
+    $width: map-get($grid, $width);
+  }
   @if $type == max {
     $width: $width - 1px;
   }

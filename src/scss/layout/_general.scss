@@ -1,0 +1,11 @@
+.flex {
+  display: flex;
+
+  > .spacer {
+    flex-grow: 1;
+  }
+}
+
+.centered {
+  text-align: center;
+}

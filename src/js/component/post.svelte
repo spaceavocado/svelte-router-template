@@ -39,7 +39,7 @@
     @include line-height($fs-md * $lhr);
   }
   .meta {
-    margin-top: $vs1;
+    margin-top: $vs-1;
   }
   .author {
     color: $c-text-3;

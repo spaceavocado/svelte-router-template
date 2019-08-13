@@ -13,8 +13,8 @@
   .hero(style='{bg}')
     .overlay
     .container
-      .layout
-        .col-12
+      .row
+        .col-xs-12
           .heading
             h1.heading-1 {title}
             +if('subtitle')
@@ -30,12 +30,16 @@
     background-size: cover;
     position: relative;
 
+    .container {
+      position: relative;
+    }
+
     .heading {
       padding: 200px 0;
       text-align: center;
       color: $c-text-2;
 
-      @include media-query($grid-sm, max) {
+      @include media-query(md, max) {
         padding: 100px 0;
       }
 

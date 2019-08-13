@@ -1,0 +1,57 @@
+/**
+ * Flex Grid
+ * Auto-generated classes based on grid variables
+ * SEE: abstract/variables
+ */
+
+.container-fluid, .container {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.container {
+  @each $breakpoint, $width in $grid {
+    @if $width > 0 {
+      @include media-query($width, min) {
+        max-width: $width - ($grid-margin * 2);
+      }
+    }
+  }
+  @include media-query(sm, max) {
+    padding-right: $grid-margin;
+    padding-left: $grid-margin;
+  }
+}
+
+.container-fluid {
+  padding-right: $grid-margin;
+  padding-left: $grid-margin;
+}
+
+.row {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-right: ($grid-gutter / 2) * -1;
+  margin-left: ($grid-gutter / 2) * -1;
+
+  &.reverse {
+    flex-direction: row-reverse;
+  }
+
+  @include grid-columns(xs, $grid-cols, $grid-gutter / 2);
+  @include media-query(sm, min) {
+    @include grid-columns(sm, $grid-cols, $grid-gutter / 2);
+  }
+  @include media-query(md, min) {
+    @include grid-columns(md, $grid-cols, $grid-gutter / 2);
+  }
+  @include media-query(lg, min) {
+    @include grid-columns(lg, $grid-cols, $grid-gutter / 2);
+  }
+  @include media-query(xl, min) {
+    @include grid-columns(xl, $grid-cols, $grid-gutter / 2);
+  }
+}

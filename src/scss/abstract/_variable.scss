@@ -23,13 +23,6 @@ $c-keyline-1: rgba(226, 226, 226, 0.7);
 // Fonts
 $font-1: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
 
-// Vertical Spacing
-$vs1: 12px;
-$vs2: 24px;
-$vs3: 48px;
-$vs4: 96px;
-$vertical-spacing: ($vs1, $vs2, $vs3, $vs4);
-
 // Animations
 $at1: 300ms;
 $at2: 700ms;
@@ -37,8 +30,21 @@ $ac1: ease-in-out;
 $ac2: cubic-bezier(0.645, 0.045, 0.355, 1);
 $ac3: cubic-bezier(.25,1.7,.35,.8);
 
+// Vertical Spacing
+$vs-1: 12px;
+$vs-2: 24px;
+$vs-3: 48px;
+$vs-4: 96px;
+$vertical-spacing: ($vs-1, $vs-2, $vs-3, $vs-4);
+
 // Grid
-$grid-xs: 600px;
-$grid-sm: 960px;
-$grid-md: 1264px;
-$grid-lg: 1904px;
+$grid: (
+  xs: 0px,
+  sm: 600px,
+  md: 960px,
+  lg: 1280px,
+  xl: 1920px
+);
+$grid-margin: $vs-2;
+$grid-gutter: $vs-2;
+$grid-cols: 12;

@@ -8,19 +8,22 @@
 // Abstract
 @import 'abstracts';
 
-// Base
-@import 'base/normalize';
-@import 'base/reset';
-@import 'base/typography';
-@import 'base/grid';
-@import 'base/vertical-spacing';
-
 html {
   height: 100%;
 }
 body {
   min-height: 100%;
 }
+
+// Base
+@import 'base/normalize';
+@import 'base/reset';
+@import 'base/typography';
+
+// Layout
+@import 'layout/general';
+@import 'layout/grid';
+@import 'layout/vertical-spacing';
 
 // Components
 @import 'components/heading';

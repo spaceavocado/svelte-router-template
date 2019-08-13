@@ -16,7 +16,7 @@
   .button-link {
     display: inline-block;
     border: 2px solid $c-text-1;
-    border-radius: $vs2;
+    border-radius: $vs-2;
     font-weight: 700;
     cursor: pointer;
     transition: background-color $at1 $ac1, border $at1 $ac1;
@@ -29,7 +29,7 @@
       }
     }
     :global(a) {
-      padding: $vs1 $vs2 $vs1;
+      padding: $vs-1 $vs-2 $vs-1;
       display: inline-block;
     }
   }

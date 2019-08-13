@@ -24,18 +24,17 @@
 </svelte:head>
 
 <template lang="pug">
-  .vs-4.vs-sm-3
+  .vs-xs-3.vs-sm-4
   .container
     h1.heading-1.centered {article.title}
-    .vs-2
+    .vs-xs-2
     p.centered Posted by #[span.author {article.author}] on #[span.date {formatDateLong(article.published)}]
-  .vs-4
+  .vs-xs-3.vs-sm-4
   .container
-    .layout
-      .col-12.col-md-2
-      .col-12.col-md-8
+    .row
+      .col-xs-12.col-md-8.col-md-offset-2
         .content {article.content}
-  .vs-4.vs-sm-3
+  .vs-xs-3.vs-sm-4
 </template>
 
 <style lang="scss">
