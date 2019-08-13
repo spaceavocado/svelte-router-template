@@ -11,7 +11,7 @@
 
 .container {
   @each $breakpoint, $width in $grid {
-    @if $width > 0 {
+    @if $width > 0 and $breakpoint != xl {
       @include media-query($width, min) {
         max-width: $width - ($grid-margin * 2);
       }
