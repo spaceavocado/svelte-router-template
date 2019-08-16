@@ -1,6 +1,6 @@
 {
   "name": "@spaceavocado/svelte-router-template",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Boilerplate template project for spaceavocado/svelte-router - Simple Svelte Router for Single Page Applications (SPA).",
   "main": "src/js/index.js",
   "author": "David Horak <info@davidhorak.com>",
@@ -29,7 +29,7 @@
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
-    "@spaceavocado/svelte-router": "^1.0.8",
+    "@spaceavocado/svelte-router": "^1.0.9",
     "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.6",
     "copy-webpack-plugin": "^5.0.4",
