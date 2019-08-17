@@ -1,6 +1,6 @@
 {
   "name": "@spaceavocado/svelte-router-template",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Boilerplate template project for spaceavocado/svelte-router - Simple Svelte Router for Single Page Applications (SPA).",
   "main": "src/js/index.js",
   "author": "David Horak <info@davidhorak.com>",
