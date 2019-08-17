@@ -29,7 +29,7 @@
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
-    "@spaceavocado/svelte-router": "^1.0.9",
+    "@spaceavocado/svelte-router": "^1.0.10",
     "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.6",
     "copy-webpack-plugin": "^5.0.4",
