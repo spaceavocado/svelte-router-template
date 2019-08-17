@@ -3,6 +3,7 @@
   import {site} from '../store/site';
   import articles from '../store/article';
   import {onMount} from 'svelte';
+  import {fade} from 'svelte/transition';
 
   // Components
   import Post from '../component/post.svelte';
@@ -71,32 +72,33 @@
 </svelte:head>
 
 <template lang="pug">
-  .vs-xs-3.vs-sm-4
-  .container
-    h1.heading-1.centered Override the Digital Divide
-    +if('filtered')
-      .vs-xs-2
-      p.heading-2.centered {filter}
-  .vs-xs-3.vs-sm-4
-  .container
-    .row
-      .col-xs-12.col-md-8.col-md-offset-2
-        .posts
-          +each('posts as article, i')
-            Post(post="{article}")
-            +if('i < posts.length-1')
-              .vs-xs-3
-              .keyline-1
-              .vs-xs-3
-  .vs-xs-3
-  .container
-    .row
-      .pagination
-        +if('page > 1')
-          ButtonLink(to="{goTo(-1)}") Newer
-        +if('page < pages')
-          ButtonLink(to="{goTo(1)}") Older
-  .vs-xs-3.vs-sm-4
+  .view(in:fade)
+    .vs-xs-3.vs-sm-4
+    .container
+      h1.heading-1.centered Override the Digital Divide
+      +if('filtered')
+        .vs-xs-2
+        p.heading-2.centered {filter}
+    .vs-xs-3.vs-sm-4
+    .container
+      .row
+        .col-xs-12.col-md-8.col-md-offset-2
+          .posts
+            +each('posts as article, i')
+              Post(post="{article}")
+              +if('i < posts.length-1')
+                .vs-xs-3
+                .keyline-1
+                .vs-xs-3
+    .vs-xs-3
+    .container
+      .row
+        .pagination
+          +if('page > 1')
+            ButtonLink(to="{goTo(-1)}") Newer
+          +if('page < pages')
+            ButtonLink(to="{goTo(1)}") Older
+    .vs-xs-3.vs-sm-4
 </template>
 
 <style lang="scss">

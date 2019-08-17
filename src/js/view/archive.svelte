@@ -2,6 +2,7 @@
   import {site} from '../store/site';
   import articles from '../store/article';
   import {onMount} from 'svelte';
+  import {fade} from 'svelte/transition';
 
   // Components
   import RouterLink from '@spaceavocado/svelte-router/component/link';
@@ -28,25 +29,26 @@
 </svelte:head>
 
 <template lang="pug">
-  .vs-xs-3.vs-sm-4
-  .container
-    h1.heading-1.centered Archive
-  .vs-xs-3.vs-sm-4
-  .container
-    .row
-      .col-xs-12.col-md-8.col-md-offset-2
-        .archive
-          +each('archive as year')
-            .year
-              h2.heading-2 {year[0]}
-              .vs-xs-2
-              .keyline-1
-              .vs-xs-2
-              .months
-                +each('year[1] as month')
-                  .month
-                    RouterLink(to="{monthLink(year[0], month)}") {monthName(year[0], month)}
-  .vs-xs-3.vs-sm-4
+  .view(in:fade)
+    .vs-xs-3.vs-sm-4
+    .container
+      h1.heading-1.centered Archive
+    .vs-xs-3.vs-sm-4
+    .container
+      .row
+        .col-xs-12.col-md-8.col-md-offset-2
+          .archive
+            +each('archive as year')
+              .year
+                h2.heading-2 {year[0]}
+                .vs-xs-2
+                .keyline-1
+                .vs-xs-2
+                .months
+                  +each('year[1] as month')
+                    .month
+                      RouterLink(to="{monthLink(year[0], month)}") {monthName(year[0], month)}
+    .vs-xs-3.vs-sm-4
 </template>
 
 <style lang="scss">

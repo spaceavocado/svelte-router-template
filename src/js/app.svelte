@@ -16,11 +16,8 @@
   import Nav from './component/nav.svelte';
   import Footer from './component/footer.svelte';
 
-  // Internals
-  let mask = false;
-
   // Create a new router
-  let router = createRouter({
+  createRouter({
     mode: ROUTER_MODE.HISTORY,
     basename: $site.baseurl,
     routes: [
@@ -83,38 +80,8 @@
       },
     ],
   });
-
-  // Simple page/route transition mask
-  $router.onBeforeNavigation(() => {
-    mask = true;
-  });
-  $router.onNavigationChanged(() => {
-    setTimeout(() => {
-      mask = false;
-    }, 10);
-  });
 </script>
 
 <Nav />
-<div class="content">
-  {#if mask}  
-    <div class="mask" out:fade></div>
-  {/if}
-  <RouterView />
-</div>
+<RouterView />
 <Footer />
-
-<style lang="scss">
-.content {
-  position: relative;
-  .mask {
-    z-index: 10;
-    background-color: $c-bg-1;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
-}
-</style>
