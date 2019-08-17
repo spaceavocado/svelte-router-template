@@ -1,7 +1,6 @@
 <script>
   import {site} from '../store/site';
   import articles from '../store/article';
-  import {onMount} from 'svelte';
   import {fade} from 'svelte/transition';
 
   // Components
@@ -18,10 +17,7 @@
       month: 'long',
     });
 
-  $: archive = [];
-  onMount(() => {
-    archive = $articles.archive();
-  });
+  $: archive = $articles.archive();
 </script>
 
 <svelte:head>

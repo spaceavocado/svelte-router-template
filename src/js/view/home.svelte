@@ -1,7 +1,6 @@
 <script>
   import {site} from '../store/site';
   import articles from '../store/article';
-  import {onMount} from 'svelte';
   import {fade} from 'svelte/transition';
 
   // Components
@@ -10,11 +9,7 @@
   import ButtonLink from '../component/button-link.svelte';
 
   // Internals
-  $: latest = [];
-
-  onMount(() => {
-    latest = $articles.list({limit:3});
-  });
+  $: latest = $articles.list({limit:3});
 </script>
 
 <svelte:head>

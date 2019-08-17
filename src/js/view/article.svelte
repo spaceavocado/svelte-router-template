@@ -9,7 +9,6 @@
   export let id = 0;
 
   // Internals
-  id = parseInt(id);
   let article;
 
   try {

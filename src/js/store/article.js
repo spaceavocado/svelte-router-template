@@ -139,6 +139,13 @@ class ArticlesStore {
 
     if (opts.page && opts.pageSize) {
       const start = (opts.page-1) * opts.pageSize;
+      if (opts.year && opts.month) {
+        return this._articles.filter((a) =>
+          a.published.getFullYear() == opts.year
+          && a.published.getMonth() == opts.month
+        ).sort((a, b) => b.published - a.published)
+            .slice(start, start + opts.pageSize);
+      }
       return this._articles.slice(0)
           .sort((a, b) => b.published - a.published)
           .slice(start, start + opts.pageSize);

@@ -2,7 +2,7 @@
   import {router} from '@spaceavocado/svelte-router';
   import {site} from '../store/site';
   import articles from '../store/article';
-  import {onMount} from 'svelte';
+  import {onMount, beforeUpdate} from 'svelte';
   import {fade} from 'svelte/transition';
 
   // Components
@@ -14,35 +14,9 @@
   export let year;
   export let month;
 
-  // Internals
-  page = page || 1;
-  page = parseInt(page);
-  let pageSize = 3;
-  let pages = 0;
-  let filtered = false;
-  let filter = '';
-
-  if (year && month) {
-    filtered = true;
-    year = parseInt(year);
-    month = parseInt(month);
-    filter = new Date(year, month, 1).toLocaleDateString("en-US", {
-      year: 'numeric',
-      month: 'long',
-    });
-    pages = Math.ceil($articles.total(year, month) / pageSize);
-  } else {
-    pages = Math.ceil($articles.total() / pageSize);
-  }
-
-  // Unexptected page
-  if (page < 0 || page > pages) {
-    $router.replace('/page-not-found');
-  }
-
   // next, prev page link
   const goTo = (change) => {
-    if (filtered) {
+    if (filter) {
       return {
         name: 'ARTICLES_FILTERED_PAGED',
         params: {
@@ -61,10 +35,35 @@
     }
   }
 
-  $: posts = [];
-  onMount(() => {
-    posts = $articles.list({page, pageSize});
-  });
+  // Internals
+  const pageSize = 3;
+  let pages = 0;
+  let filter = null;
+  let posts = [];
+  let next;
+  let prev;
+  
+  $: {
+    page = page || 1;
+    if (year && month) {
+      filter = new Date(year, month, 1).toLocaleDateString("en-US", {
+        year: 'numeric',
+        month: 'long',
+      });
+      pages = Math.ceil($articles.total(year, month) / pageSize);
+    } else {
+      filter = null;
+      pages = Math.ceil($articles.total() / pageSize);
+    }
+
+    // Unexptected page
+    if (page < 0 || page > pages) {
+      $router.replace('/page-not-found');
+    }
+    posts = $articles.list({page, pageSize, year, month});
+    next = goTo(1);
+    prev = goTo(-1);
+  };
 </script>
 
 <svelte:head>
@@ -76,7 +75,7 @@
     .vs-xs-3.vs-sm-4
     .container
       h1.heading-1.centered Override the Digital Divide
-      +if('filtered')
+      +if('filter')
         .vs-xs-2
         p.heading-2.centered {filter}
     .vs-xs-3.vs-sm-4
@@ -95,9 +94,9 @@
       .row
         .pagination
           +if('page > 1')
-            ButtonLink(to="{goTo(-1)}") Newer
+            ButtonLink(to="{prev}") Newer
           +if('page < pages')
-            ButtonLink(to="{goTo(1)}") Older
+            ButtonLink(to="{next}") Older
     .vs-xs-3.vs-sm-4
 </template>
 

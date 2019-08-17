@@ -2,7 +2,6 @@
   import {site} from './store/site';
   import createRouter, {ROUTER_MODE} from '@spaceavocado/svelte-router';
   import RouterView from '@spaceavocado/svelte-router/component/view';
-  import {fade} from 'svelte/transition';
 
   // View components
   import ViewHome from './view/home.svelte';
@@ -38,19 +37,34 @@
             path: '/:page(\\d+)',
             name: 'ARTICLES_PAGED',
             component: ViewArticles,
-            props: true,
+            props: (route) => {
+              return {
+                page: parseInt(route.params.page),
+              }
+            },
           },
           {
             path: '/:year(\\d+)/:month(\\d+)',
             name: 'ARTICLES_FILTERED',
             component: ViewArticles,
-            props: true,
+            props: (route) => {
+              return {
+                year: parseInt(route.params.year),
+                month: parseInt(route.params.month),
+              }
+            },
           },
           {
             path: '/:year(\\d+)/:month(\\d+)/:page(\\d+)',
             name: 'ARTICLES_FILTERED_PAGED',
             component: ViewArticles,
-            props: true,
+            props: (route) => {
+              return {
+                page: parseInt(route.params.page),
+                year: parseInt(route.params.year),
+                month: parseInt(route.params.month),
+              }
+            },
           }
         ]
       },
@@ -60,7 +74,7 @@
         component: ViewArticle,
         props: (route) => {
           return {
-            id: route.params.id,
+            id: parseInt(route.params.id),
           }
         },
       },

@@ -8,19 +8,25 @@
   export let post;
 
   // Internals
-  let limit = 100;
-  let subtitle = post.content;
-  if (subtitle.length > 100) {
-    subtitle = subtitle.substring(subtitle, limit-3) + '...';
-  }
-  let date = formatDateLong(post.published);
-  let link = {
-    name: 'ARTICLE',
-    params: {
-      id: post.id,
-      slug: slugify(post.title)
+  const limit = 100;
+  let subtitle;
+  let date;
+  let link;
+
+  $: {
+    subtitle = post.content;
+    if (subtitle.length > 100) {
+      subtitle = subtitle.substring(subtitle, limit-3) + '...';
     }
-  };
+    date = formatDateLong(post.published);
+    link = {
+      name: 'ARTICLE',
+      params: {
+        id: post.id,
+        slug: slugify(post.title)
+      }
+    };
+  }
 </script>
 
 <template lang="pug">
