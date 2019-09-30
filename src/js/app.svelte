@@ -37,34 +37,19 @@
             path: '/:page(\\d+)',
             name: 'ARTICLES_PAGED',
             component: ViewArticles,
-            props: (route) => {
-              return {
-                page: parseInt(route.params.page),
-              }
-            },
+            props: true,
           },
           {
             path: '/:year(\\d+)/:month(\\d+)',
             name: 'ARTICLES_FILTERED',
             component: ViewArticles,
-            props: (route) => {
-              return {
-                year: parseInt(route.params.year),
-                month: parseInt(route.params.month),
-              }
-            },
+            props: true,
           },
           {
             path: '/:year(\\d+)/:month(\\d+)/:page(\\d+)',
             name: 'ARTICLES_FILTERED_PAGED',
             component: ViewArticles,
-            props: (route) => {
-              return {
-                page: parseInt(route.params.page),
-                year: parseInt(route.params.year),
-                month: parseInt(route.params.month),
-              }
-            },
+            props: true,
           }
         ]
       },
@@ -72,11 +57,7 @@
         path: '/article/:id(\\d+)-:slug',
         name: 'ARTICLE',
         component: ViewArticle,
-        props: (route) => {
-          return {
-            id: parseInt(route.params.id),
-          }
-        },
+        props: true,
       },
       {
         path: '/archive',
