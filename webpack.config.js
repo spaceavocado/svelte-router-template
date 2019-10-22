@@ -90,7 +90,7 @@ module.exports = (env, options) => {
             {
               loader: 'sass-loader', options: {
                 sourceMap: DEVELOPMENT,
-                data: '$__BASEURL__: "' + baseURL + '";',
+                prependData: '$__BASEURL__: "' + baseURL + '";',
               },
             },
           ],
@@ -123,8 +123,8 @@ module.exports = (env, options) => {
     },
     devServer: {
       historyApiFallback: {
-        index: 'index.html'
-      }
+        index: 'index.html',
+      },
     },
   };
 };
